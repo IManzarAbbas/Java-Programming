@@ -1,0 +1,44 @@
+
+
+
+import java.util.Scanner;
+public class CountIndividualLLetters
+{
+    public static void main (String args [])
+    {
+        Scanner input=new Scanner (System.in);
+        System.out.print("Enter Your String Value : ");
+        String Value=input.nextLine().toLowerCase();
+        CountNumberOfLetter(Value);
+        CompressedLetters(Value);
+    }
+
+    static void CountNumberOfLetter(String value)
+    {
+        int tempArray[]=new int[26];
+        for(int i=0; i<value.length(); i++)
+        {
+
+            if(value.charAt(i)>='a'&& value.charAt(i)<='z')
+            {
+                tempArray[value.charAt(i)-'a']++;
+            }
+        }
+        System.out.println("Alphabets which are given in your String ");
+        for(char i='a'; i<='z'; i++)
+        {
+            int count = tempArray[i-'a'];
+            if(count>0)
+            {
+                System.out.println(i+" is used for "+count+" times ");
+            }
+        }
+    }
+
+    static void CompressedLetters(String value)
+    {
+        String Val=value.replaceAll("\\s","");
+        System.out.println(Val);
+
+    }
+}
